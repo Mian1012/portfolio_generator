@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create a beautiful personal portfolio with FolioVerse." />
+  <title>FolioVerse — Portfolio Template Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" data-page="home" aria-label="FolioVerse home">
+      <span class="brand-mark"><span></span><span></span><span></span></span>
+      <span>Folio<span class="brand-accent">Verse</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-link active" data-page="home">Home</button>
+      <button class="nav-link" data-page="editor">Create Portfolio</button>
+      <button class="nav-link" data-page="manage">Manage Portfolios</button>
+    </nav>
+    <div class="top-actions">
+      <button class="button button-ghost" id="configBtn">Database Setup</button>
+      <button class="button button-primary" data-page="editor">Get Started <span aria-hidden="true">↗</span></button>
+    </div>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+  </header>
+
+  <main>
+    <section class="page active" id="homePage">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR STORY, YOUR PORTFOLIO</div>
+          <h1>Make your work<br> <span class="gradient-text">impossible to ignore.</span></h1>
+          <p class="hero-description">Turn your experience, skills, and big ideas into a portfolio that feels like you. Choose a style, add your story, and publish your personal showcase in minutes.</p>
+          <div class="hero-actions">
+            <button class="button button-primary button-large" data-page="editor">Create my portfolio <span>→</span></button>
+            <button class="button button-light button-large" data-page="templates">Explore templates</button>
+          </div>
+          <div class="hero-proof"><div class="avatar-stack"><i>A</i><i>M</i><i>J</i></div><span><strong>3 distinct styles</strong><br>One portfolio that feels like you.</span></div>
+        </div>
+        <div class="hero-art" aria-label="Portfolio preview illustration">
+          <div class="art-orb orb-one"></div><div class="art-orb orb-two"></div>
+          <div class="floating-note"><span class="note-spark">✦</span><strong>Build your<br>next chapter.</strong><small>YOUR FUTURE STARTS HERE</small></div>
+          <div class="mock-window">
+            <div class="mock-top"><span></span><span></span><span></span><b>my-portfolio.site</b></div>
+            <div class="mock-content">
+              <div class="mock-sidebar"><div class="mock-avatar">AJ</div><b>Alex Johnson</b><small>Designer & Developer</small><hr><i>⌂ &nbsp; About</i><i>✳ &nbsp; Projects</i><i>↗ &nbsp; Contact</i></div>
+              <div class="mock-main"><span class="mock-label">PORTFOLIO / 2026</span><h3>Ideas into<br><em>experiences.</em></h3><p>Thoughtful design. Useful technology. Meaningful impact.</p><div class="mock-projects"><div class="mock-project p1"></div><div class="mock-project p2"></div><div class="mock-project p3"></div></div><div class="mock-lines"></div></div>
+            </div>
+          </div>
+          <div class="art-sticker">DESIGN<br>YOUR<br>FUTURE <span>↗</span></div>
+          <div class="art-plant"><span></span><span></span><span></span><b></b></div>
+        </div>
+      </div>
+
+      <section class="template-showcase" id="templateShowcase">
+        <div class="section-heading">
+          <div><div class="eyebrow">MADE FOR YOUR NEXT CHAPTER</div><h2>Three styles. <span class="gradient-text">Your story.</span></h2></div>
+          <button class="text-button" data-page="templates">View all templates <span>→</span></button>
+        </div>
+        <div class="template-grid">
+          <article class="template-card simple-card">
+            <div class="template-preview preview-simple"><div class="mini-simple-head"><div class="mini-avatar">MS</div><div><b>Maria Santos</b><small>Developer & Problem Solver</small></div></div><div class="mini-rule"></div><div class="mini-columns"><div><small>ABOUT</small><div class="mini-lines"></div><small>EXPERIENCE</small><div class="mini-lines short"></div></div><div><small>SELECTED WORK</small><div class="mini-work"></div><div class="mini-work narrow"></div></div></div></div>
+            <div class="template-card-foot"><div><span class="template-number">01 / THE ESSENTIAL</span><h3>Simple</h3><p>Quiet confidence. Clear hierarchy.</p></div><span class="template-arrow">↗</span></div>
+          </article>
+          <article class="template-card modern-card">
+            <div class="template-preview preview-modern"><div class="modern-mini-side"><div class="mini-avatar">MS</div><b>Maria<br>Santos</b><small>CREATIVE DEVELOPER</small><div class="mini-side-pill">ABOUT</div><div class="mini-side-pill">PROJECTS</div></div><div class="modern-mini-main"><small>HELLO, I'M</small><h4>Maria Santos<span>.</span></h4><p>I build useful digital experiences.</p><div class="modern-stats"><b>08<small>PROJECTS</small></b><b>04<small>YEARS EXP.</small></b></div><div class="modern-blocks"><i></i><i></i><i></i></div></div></div>
+            <div class="template-card-foot"><div><span class="template-number">02 / THE BUILDER</span><h3>Modern</h3><p>Structured, bold, and full of detail.</p></div><span class="template-arrow">↗</span></div>
+          </article>
+          <article class="template-card creative-card">
+            <div class="template-preview preview-creative"><div class="creative-shape shape-a"></div><div class="creative-shape shape-b"></div><span class="creative-kicker">A LITTLE DIFFERENT</span><h4>Make<br>good <i>things.</i></h4><div class="creative-avatar">MS</div><div class="creative-caption">MARIA SANTOS<br>DESIGNER / MAKER</div><div class="creative-scribble">✳</div><div class="creative-bottom">SELECTED WORK — 2026 ↗</div></div>
+            <div class="template-card-foot"><div><span class="template-number">03 / THE ORIGINAL</span><h3>Creative</h3><p>Expressive, playful, and unexpected.</p></div><span class="template-arrow">↗</span></div>
+          </article>
+        </div>
+      </section>
+      <section class="steps-section"><div><div class="eyebrow">LESS SETUP, MORE SHOWCASE</div><h2>Your portfolio,<br><span class="gradient-text">in three simple steps.</span></h2></div><div class="steps-list"><div class="step"><span>01</span><div><b>Tell us about you</b><p>Add your background, skills, projects, and ways to connect.</p></div></div><div class="step"><span>02</span><div><b>Choose your point of view</b><p>Pick Simple, Modern, or Creative. Switch styles whenever you like.</p></div></div><div class="step"><span>03</span><div><b>Preview and refine</b><p>Save your work online and update it whenever your story grows.</p></div></div></div></section>
+      <footer class="footer"><a class="brand" href="#" data-page="home"><span class="brand-mark"><span></span><span></span><span></span></span><span>Folio<span class="brand-accent">Verse</span></span></a><span>Make space for what you make.</span><span>© 2026 FolioVerse</span></footer>
+    </section>
+
+    <section class="page" id="editorPage">
+      <div class="page-intro"><div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</div><h1>Build your <span class="gradient-text">portfolio.</span></h1><p>Fill in what you know. You can always come back and make it better.</p></div>
+      <form id="portfolioForm" class="editor-layout">
+        <div class="form-panel">
+          <div class="form-section"><div class="form-section-title"><span>01</span><div><h2>Personal details</h2><p>Start with the essentials.</p></div></div>
+            <div class="form-grid"><label class="field field-wide">Full name *<input name="full_name" required maxlength="100" placeholder="e.g. Maria Santos"></label><label class="field">Email<input name="email" type="email" placeholder="you@example.com"></label><label class="field">Contact number<input name="contact_number" placeholder="+63 912 345 6789"></label><div class="field field-wide"><label for="profilePhotoFile">Profile picture</label><div class="photo-upload-row"><input id="profilePhotoFile" type="file" accept="image/png,image/jpeg,image/webp" class="photo-file-input"><button class="button button-outline" type="button" id="choosePhotoBtn">Upload Photo</button><span class="photo-upload-help">PNG, JPG, or WEBP · Max 2 MB</span></div><div id="photoPreviewWrap" class="photo-preview-wrap" hidden><img id="photoPreview" alt="Selected profile photo preview"><button class="text-button" type="button" id="removePhotoBtn">Remove photo</button></div><input name="profile_picture" type="url" placeholder="Or paste a public image URL (optional)"><small>Choose a photo to upload to Supabase Storage, or paste a public image URL.</small></div><label class="field field-wide">Address / Location<input name="address" maxlength="200" placeholder="Cebu City, Philippines"></label><label class="field field-wide">About me<textarea name="about_me" rows="4" maxlength="2000" placeholder="Tell people what you do, what you care about, and what you're working toward."></textarea></label></div>
+          </div>
+          <div class="form-section"><div class="form-section-title"><span>02</span><div><h2>What you bring</h2><p>Education, skills, and experience.</p></div></div>
+            <div class="form-grid"><div class="field field-wide education-editor"><div class="education-editor-heading"><div><label>Education history</label><small>Add each school separately, from elementary school through college.</small></div><button class="button button-outline button-small" type="button" id="addEducationBtn">＋ Add Education</button></div><div id="educationEntries" class="education-entries"></div><input type="hidden" name="education" value="[]"><small>Each entry has its own level, school, degree or strand, and years attended.</small></div><label class="field field-wide">Skills<textarea name="skills" rows="2" placeholder="HTML, CSS, JavaScript, Figma&#10;Separate skills with commas or new lines."></textarea></label><label class="field field-wide">Work experience<textarea name="work_experience" rows="3" placeholder="Frontend Developer — ABC Tech (2024–2025)&#10;Add one entry per line."></textarea></label></div>
+          </div>
+          <div class="form-section"><div class="form-section-title"><span>03</span><div><h2>Show your work</h2><p>Give your projects a place to shine.</p></div></div>
+            <div class="form-grid"><label class="field field-wide">Projects<textarea name="projects" rows="4" placeholder="Task Manager App — A web app for organizing tasks. https://example.com&#10;Portfolio Website — A responsive personal website."></textarea><small>One project per line. Add a URL after the description if you have one.</small></label><label class="field field-wide">Social media / website links<textarea name="social_links" rows="2" placeholder="LinkedIn — https://linkedin.com/in/yourname&#10;GitHub — https://github.com/yourname"></textarea></label></div>
+          </div>
+          <div class="form-section"><div class="form-section-title"><span>04</span><div><h2>Pick a look</h2><p>Exactly three styles, each with its own personality.</p></div></div>
+            <div class="template-choice">
+              <label class="choice choice-simple"><input type="radio" name="template" value="simple" checked><span class="choice-art">Aa</span><b>Simple</b><small>Clean & professional</small></label>
+              <label class="choice choice-modern"><input type="radio" name="template" value="modern"><span class="choice-art">▦</span><b>Modern</b><small>Structured & bold</small></label>
+              <label class="choice choice-creative"><input type="radio" name="template" value="creative"><span class="choice-art">✳</span><b>Creative</b><small>Expressive & playful</small></label>
+            </div>
+          </div>
+          <div class="form-actions"><button class="button button-light" type="button" data-page="home">Cancel</button><button class="button button-primary button-large" type="submit" id="saveBtn">Save & preview <span>→</span></button></div>
+          <p class="form-message" id="formMessage" role="status"></p>
+        </div>
+        <aside class="editor-aside"><div class="aside-sticky"><div class="aside-label">YOUR CREATION</div><div class="aside-preview"><div class="aside-preview-top"><span></span><span></span><span></span></div><div class="aside-preview-body"><div class="aside-avatar">✦</div><div class="aside-lines"><i></i><i></i><i></i></div><div class="aside-chip-row"><i></i><i></i><i></i></div><div class="aside-card-row"><i></i><i></i></div></div></div><h3>A little progress<br>goes a long way.</h3><p>Your portfolio is saved online when you connect your Supabase project. You can edit or delete it later.</p><button class="text-button" type="button" id="setupFromEditor">Connect database ↗</button></div></aside>
+      </form>
+    </section>
+
+    <section class="page" id="templatesPage">
+      <div class="page-intro"><div class="eyebrow">THREE WAYS TO TELL YOUR STORY</div><h1>Find your <span class="gradient-text">style.</span></h1><p>Every template is responsive, readable, and designed with a different visual identity.</p></div>
+      <div class="template-grid template-grid-page">
+        <article class="template-card simple-card"><div class="template-preview preview-simple large-preview"><div class="mini-simple-head"><div class="mini-avatar">MS</div><div><b>Maria Santos</b><small>Developer & Problem Solver</small></div></div><div class="mini-rule"></div><div class="mini-columns"><div><small>ABOUT</small><div class="mini-lines"></div><small>EXPERIENCE</small><div class="mini-lines short"></div></div><div><small>SELECTED WORK</small><div class="mini-work"></div><div class="mini-work narrow"></div></div></div></div><div class="template-card-foot"><div><span class="template-number">01 / THE ESSENTIAL</span><h3>Simple</h3><p>For a focused, timeless presentation.</p></div><button class="button button-small button-outline" data-use-template="simple">Use Simple</button></div></article>
+        <article class="template-card modern-card"><div class="template-preview preview-modern large-preview"><div class="modern-mini-side"><div class="mini-avatar">MS</div><b>Maria<br>Santos</b><small>CREATIVE DEVELOPER</small><div class="mini-side-pill">ABOUT</div><div class="mini-side-pill">PROJECTS</div></div><div class="modern-mini-main"><small>HELLO, I'M</small><h4>Maria Santos<span>.</span></h4><p>I build useful digital experiences.</p><div class="modern-stats"><b>08<small>PROJECTS</small></b><b>04<small>YEARS EXP.</small></b></div><div class="modern-blocks"><i></i><i></i><i></i></div></div></div><div class="template-card-foot"><div><span class="template-number">02 / THE BUILDER</span><h3>Modern</h3><p>For a polished, product-minded feel.</p></div><button class="button button-small button-outline" data-use-template="modern">Use Modern</button></div></article>
+        <article class="template-card creative-card"><div class="template-preview preview-creative large-preview"><div class="creative-shape shape-a"></div><div class="creative-shape shape-b"></div><span class="creative-kicker">A LITTLE DIFFERENT</span><h4>Make<br>good <i>things.</i></h4><div class="creative-avatar">MS</div><div class="creative-caption">MARIA SANTOS<br>DESIGNER / MAKER</div><div class="creative-scribble">✳</div><div class="creative-bottom">SELECTED WORK — 2026 ↗</div></div><div class="template-card-foot"><div><span class="template-number">03 / THE ORIGINAL</span><h3>Creative</h3><p>For expressive portfolios with personality.</p></div><button class="button button-small button-outline" data-use-template="creative">Use Creative</button></div></article>
+      </div>
+    </section>
+
+    <section class="page" id="previewPage">
+      <div class="preview-toolbar"><div><div class="eyebrow">YOUR STORY, BEAUTIFULLY TOLD</div><h1>Portfolio <span class="gradient-text">preview.</span></h1></div><div class="preview-tools"><button class="button button-light" id="editCurrentBtn">Edit details</button><button class="button button-primary" id="printBtn">Print / Save PDF ↗</button></div></div>
+      <div id="portfolioOutput" class="portfolio-output"></div>
+    </section>
+
+    <section class="page" id="managePage">
+      <div class="page-intro"><div class="eyebrow">YOUR WORK, ALL IN ONE PLACE</div><h1>Manage <span class="gradient-text">portfolios.</span></h1><p>Open a saved portfolio to preview it, edit its details, or remove it.</p></div>
+      <div class="manage-toolbar"><div><h2>Your saved work</h2><p id="manageStatus">Connect Supabase to load saved portfolios.</p></div><button class="button button-primary" data-page="editor">+ New portfolio</button></div>
+      <div id="portfolioList" class="portfolio-list"></div>
+    </section>
+  </main>
+
+  <dialog id="configDialog" class="config-dialog">
+    <form method="dialog" class="dialog-close-row"><span class="brand"><span class="brand-mark"><span></span><span></span><span></span></span>Database setup</span><button class="icon-button" aria-label="Close">×</button></form>
+    <div class="eyebrow">CONNECT YOUR ONLINE DATABASE</div><h2>Supabase connection</h2><p class="dialog-copy">Paste your Supabase Project URL and publishable/anon key. These values are intended for browser use; never paste a service-role key here.</p>
+    <form id="configForm" class="config-form"><label class="field">Project URL<input id="supabaseUrl" type="url" placeholder="https://your-project.supabase.co" required></label><label class="field">Publishable / anon key<textarea id="supabaseKey" rows="3" placeholder="eyJ..." required></textarea></label><div class="dialog-actions"><button class="button button-light" type="button" id="cancelConfig">Cancel</button><button class="button button-primary" type="submit">Connect database</button></div><p class="form-message" id="configMessage" role="status"></p></form>
+    <div class="setup-help"><b>Before connecting:</b> run the SQL in <code>supabase-schema.sql</code> inside Supabase → SQL Editor. The included demo policy allows public CRUD, so only use non-sensitive sample portfolio data. For a real public service, add user authentication and per-user row policies.</div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
